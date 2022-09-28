@@ -1,6 +1,9 @@
 #include "Checker.h"
 
-std::string TrueCheckerPrint(std::vector<std::string> hard_coded_word, std::string args, int num){
+Checker::Checker(){}
+Checker::~Checker(){}
+
+std::string Checker::TrueCheckerPrint(std::vector<std::string> hard_coded_word, std::string args, int num){
     //VARIABLES
     std::string number_check = "";//to check if it's right, close or wrong
     std::string final_result = "";//final result with all verifications
@@ -8,11 +11,11 @@ std::string TrueCheckerPrint(std::vector<std::string> hard_coded_word, std::stri
     //CHECKS
     number_check = ReceiveCheck(hard_coded_word,args,num);//has number code raw
     DoubleCheck(number_check, args, hard_coded_word);
-
+    return "  ";
 }
 
 //FIRST CHECK
-std::string ReceiveCheck(std::vector<std::string> hard_coded_word, std::string args, int num){
+std::string Checker::ReceiveCheck(std::vector<std::string> hard_coded_word, std::string args, int num){
     //VARIABLES
     std::string check = "";//to check if it's right, close or wrong
 
@@ -30,7 +33,7 @@ std::string ReceiveCheck(std::vector<std::string> hard_coded_word, std::string a
     return check;
 }
 
-bool SecondCheck(std::string palavra, char c){ //to check if letter exists
+bool Checker::SecondCheck(std::string palavra, char c){ //to check if letter exists
     for (int i = 0; i < palavra.size(); i++){
         if(palavra[i]==c)
             return true;
@@ -39,16 +42,16 @@ bool SecondCheck(std::string palavra, char c){ //to check if letter exists
 }
 
 //SECOND CHECK
-int DoubleCheck(std::string number_check, std::string args, std::vector<std::string> hard_coded_word){
+int Checker::DoubleCheck(std::string number_check, std::string args, std::vector<std::string> hard_coded_word){
     //VARIABLES
     std::vector<std::string> double_checker;//if it exists, checks how many times
     std::vector<std::string> word_counter = WordCounter(hard_coded_word);// format letter | number; checks how many times x letter happens and registers on this variable
 
 
-
+    return 0;
 }
 
-std::vector<std::string> WordCounter(std::vector<std::string> hard_coded_word){
+std::vector<std::string> Checker::WordCounter(std::vector<std::string> hard_coded_word){
     //VARIABLES
     std::vector<std::string> word_counter;
 
@@ -62,5 +65,5 @@ std::vector<std::string> WordCounter(std::vector<std::string> hard_coded_word){
         }
         word_counter.emplace_back(receiver,times_word_appears);
     }
-    
+    return word_counter;
 }

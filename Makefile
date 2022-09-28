@@ -24,7 +24,7 @@ OBJS = $(patsubst %.cpp, %.o, $(shell $(FIND) "*.cpp"))
 all: $(OBJS)
 	$(CXX) -o $(OUTPUT_FILE) $^ $(CXXFLAGS)
 
-%.o: %.cpp %.hpp
+%.o: %.cpp %.h
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
 .PHONY: debug
