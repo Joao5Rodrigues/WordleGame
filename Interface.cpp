@@ -1,11 +1,12 @@
 #include "Interface.h"
 
 Interface::Interface(){}
+
 Interface::~Interface(){}
 
-bool Interface::run(std::vector<std::string> args_main){
-    std::vector<std::string> hard_coded_word = BoardCaller.SetHardCodedWord();
-    std::vector<std::string> player_word;
+void Interface::run(){
+    std::string hard_coded_word = BoardCaller.SetHardCodedWord();
+    std::string player_word;
     std::string args = "";
     int attempts = 0;
 
@@ -21,12 +22,12 @@ bool Interface::run(std::vector<std::string> args_main){
             BoardCaller.PrintBoardInside(hard_coded_word);
         }else if(args == "exit"){
             std::cout << "Cya!" << std::endl;
-            return 0;
+            return;
         }else if(args.size() != hard_coded_word.size()){
-            std::cout << "Palavras de 5 letras so!" << std::endl;//Mudar mais tarde
+            std::cout << "Palavras de " << std::to_string(hard_coded_word.size()) << " letras!" << std::endl;//Mudar mais tarde
         }else{
-            player_word.emplace_back(args);
-            CheckCaller.TrueCheckerPrint(hard_coded_word,args,0);//pensar em maneira de dar check entre letras e adicionar um print do estado atual
+            player_word = args;//lembrar de rever esta parte
+            CheckCaller.TrueCheckerPrint(hard_coded_word,args);//pensar em maneira de dar check entre letras e adicionar um print do estado atual
             attempts++;
         }
     }while (attempts != 6);

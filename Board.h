@@ -8,8 +8,8 @@ public:
     Board();
     ~Board();
 
-    std::vector<std::string> SetHardCodedWord();
-    void PrintBoardInside(std::vector<std::string> hard_coded_word);
+    std::string SetHardCodedWord();
+    void PrintBoardInside(std::string hard_coded_word);
 };
 
 

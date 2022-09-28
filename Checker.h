@@ -11,15 +11,15 @@ public:
     ~Checker();
 
 
-    std::string TrueCheckerPrint(std::vector<std::string> hard_coded_word, std::string args, int num);//Sends words with all the checks in place
+    std::string TrueCheckerPrint(std::string hard_coded_word, std::string args);//Sends words with all the checks in place
 
     //FIRST CHECK
-    std::string ReceiveCheck(std::vector<std::string> hard_coded_word, std::string args, int num);//Sends number code to TCP
+    std::string ReceiveCheck(std::string hard_coded_word, std::string args);//Sends number code to TCP
     bool SecondCheck(std::string palavra, char c);//Checks if word exists even if it is in the wrong place
 
     //SECOND CHECK
-    int DoubleCheck(std::string number_check, std::string args, std::vector<std::string> hard_coded_word);
-    std::vector<std::string> WordCounter(std::vector<std::string> hard_coded_word);
+    int DoubleCheck(std::string number_check, std::string args, std::string hard_coded_word);
+    std::vector<std::string> WordCounter(std::string hard_coded_word);
 };
 
 #endif //CHECKER_H

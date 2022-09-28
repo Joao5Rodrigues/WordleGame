@@ -9,8 +9,8 @@ class Interface{
 private:
     Checker CheckCaller;
     Board BoardCaller;
-    bool run(std::vector<std::string> args_main);
 public:
+    void run();
     Interface();
     ~Interface();
 };

@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'd:/universidade/done/POO/POO-2021-2022/TP-POO'
+make: Leaving directory 'd:/universidade/done/POO/POO-2021-2022/TP-POO'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

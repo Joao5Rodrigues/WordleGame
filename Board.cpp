@@ -3,10 +3,10 @@
 Board::Board(){}
 Board::~Board(){}
 
-std::vector<std::string> Board::SetHardCodedWord(){
-    std::vector<std::string> hard_coded_word;
+std::string Board::SetHardCodedWord(){
+    std::string hard_coded_word = "teste";
 
-    hard_coded_word.emplace_back("teste");
+    // hard_coded_word.emplace_back("teste");
     // hard_coded_board.emplace_back("certo");
     // hard_coded_board.emplace_back("cinco");
     // hard_coded_board.emplace_back("vinho");
@@ -20,8 +20,8 @@ std::vector<std::string> Board::SetHardCodedWord(){
     return hard_coded_word;
 }
 
-void Board::PrintBoardInside(std::vector<std::string> hard_coded_word){
+void Board::PrintBoardInside(std::string hard_coded_word){
     for (int i = 0; i < hard_coded_word.size(); i++){
-        std::cout << hard_coded_word[i] << std::endl;
+        std::cout << hard_coded_word << std::endl;
     }
 }

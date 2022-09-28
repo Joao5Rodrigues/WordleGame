@@ -1,4 +1,4 @@
-OUTPUT_FILE = game
+OUTPUT_FILE = Game
 CXXFLAGS = -O3
 
 $(info Identifing OS...)
