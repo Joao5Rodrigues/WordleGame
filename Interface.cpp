@@ -17,14 +17,14 @@ void Interface::run(){
     std::vector<std::string> player_attempts_color;
 
     //CODE
-    // system("CLS");
+    system("CLS");
     do{
         //Presentation
         std::cout << "\nBem vindo!" << std::endl;
         std::cout << "1)Novo jogo - start" << std::endl;
         std::cout << "2)Sair do jogo - exit" << std::endl;
         std::cin >> args;
-        // system("CLS");
+        system("CLS");
         if (args =="start"){
             //Running Code in single Word mode
             hard_coded_word = BoardCaller.SetHardCodedWord();
@@ -34,7 +34,7 @@ void Interface::run(){
                 PrintKeyboard();
                 std::cout << "\nInsira uma palavra: ";
                 std::cin >> args;
-                // system("CLS");
+                system("CLS");
                 
                 if(args == "konami_code"){
                     BoardCaller.PrintBoardInside(hard_coded_word);
@@ -68,7 +68,7 @@ void Interface::run(){
         }else
             std::cout << "Comando nao reconhecido!" << std::endl;
     }while (quit_game!=true);
-    // system("CLS");
+    system("CLS");
     std::cout << "Cya!" << std::endl;
 }
 
