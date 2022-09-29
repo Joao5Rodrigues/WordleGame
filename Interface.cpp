@@ -16,9 +16,11 @@ void Interface::run(){
     std::vector<std::string> player_attempts;
     std::vector<std::string> player_attempts_color;
     int games_played = 0;
+    float games_played_percent = 0;
     int wins = 0;
     int sequence_wins = 0;
     int best_sequence_wins = 0;
+    //std::vector<float> percent_win;
 
     //CODE
     system("CLS");
@@ -30,8 +32,9 @@ void Interface::run(){
         player_attempts.clear();
         player_attempts_color.clear();
         attempts = 0;
+        // games_played_percent = games_played/wins;
         std::cout << "\nBem vindo!" << std::endl;
-        std::cout << "Jogados: " << games_played << std::endl;
+        std::cout << "Jogados: " << games_played << "   Percentagem de jogos ganhos: " << games_played_percent << std::endl;
         std::cout << "Vitoria: " << wins << "   Vitoria em sequencia corrente: " << sequence_wins << "   Melhor sequencia de vitorias: " << best_sequence_wins << std::endl;
         std::cout << "1)Novo jogo - start" << std::endl;
         std::cout << "2)Sair do jogo - exit" << std::endl;
@@ -152,3 +155,18 @@ void Interface::PrintKeyboard(){
     std::cout <<    "|      |  |     |                          |      |  |      |" << std::endl;
     std::cout <<    "'------'--'-----'--------------------------'------'--'------'" << std::endl;
 }
+
+// std::vector<float> Interface::calc_percentagem(std::vector<std::string> player_attempts_color, std::vector<float> num){
+//     for (int i = 0; i < player_attempts_color.size(); i++){
+//         for (int j = 0; j < player_attempts_color[i].size(); j++){
+//             if(player_attempts_color[i][j]=='0'){
+//                 num[i]+=0;
+//             }else if (player_attempts_color[i][j]=='1'){
+//                 num[i]+=50;
+//             }else if (player_attempts_color[i][j]=='2'){
+//                 num[i]+=100;
+//             }
+//         }
+//         num[i] = num[i]/player_attempts_color[i].size();
+//     }
+// }
