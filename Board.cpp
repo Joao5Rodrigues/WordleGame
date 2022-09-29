@@ -1,21 +1,35 @@
 #include "Board.h"
+#include <ctime>
+#include <limits>
 
 Board::Board(){}
 Board::~Board(){}
 
 std::string Board::SetHardCodedWord(){
-    std::string hard_coded_word = "teste";
+    srand((unsigned int)time(NULL));
 
-    // hard_coded_word.emplace_back("teste");
-    // hard_coded_board.emplace_back("certo");
-    // hard_coded_board.emplace_back("cinco");
-    // hard_coded_board.emplace_back("vinho");
-    // hard_coded_board.emplace_back("grupo");
-    // hard_coded_board.emplace_back("termo");
-    // hard_coded_board.emplace_back("gerar");
-    // hard_coded_board.emplace_back("visao");
-    // hard_coded_board.emplace_back("chama");
-    // hard_coded_board.emplace_back("gerir");
+    //VARIABLES
+    std::fstream file("palavras.txt");
+    std::string hard_coded_word;
+    std::string line;
+
+    int random_number = 0;
+
+    bool create_word = true;
+    bool get_word = true;
+    do{
+        if(get_word && (random_number <= 0 || random_number >= 1162242)){
+            random_number = std::rand();
+        }else
+            get_word = false;
+    } while (get_word);
+
+    
+    if(!file.is_open())
+        return "teste";
+    for (int i = 1; i <= random_number; i++){
+        std::getline(file,hard_coded_word);
+    }
 
     return hard_coded_word;
 }

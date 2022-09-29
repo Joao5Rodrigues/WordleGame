@@ -20,6 +20,7 @@ public:
     //SECOND CHECK
     int DoubleCheck(std::string number_check, std::string args, std::string hard_coded_word);
     std::vector<std::string> WordCounter(std::string hard_coded_word);
+    bool WordCounterCheck(std::vector<std::string> word_counter, char c);
 };
 
 #endif //CHECKER_H

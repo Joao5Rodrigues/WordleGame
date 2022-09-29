@@ -11,6 +11,7 @@ private:
     Board BoardCaller;
 public:
     void run();
+    void showWordSecret(std::string word_secret, std::vector<std::string> player_attempts, bool state_game);
     Interface();
     ~Interface();
 };
