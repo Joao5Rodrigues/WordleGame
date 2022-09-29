@@ -11,7 +11,7 @@ public:
     ~Checker();
 
 
-    std::vector<std::string> TrueCheckerPrint(std::string hard_coded_word, std::string args);//Sends words with all the checks in place
+    std::vector<std::string> TrueCheckerPrint(std::string hard_coded_word, std::string args, std::vector<std::string> player_attempts_color);//Sends words with all the checks in place
 
     //FIRST CHECK
     std::string ReceiveCheck(std::string hard_coded_word, std::string args);//Sends number code to TCP

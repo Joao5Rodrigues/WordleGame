@@ -14,6 +14,7 @@ void Interface::run(){
     int attempts = 0;
     bool quit_game = false;
     std::vector<std::string> player_attempts;
+    std::vector<std::string> player_attempts_color;
 
     //CODE
     // system("CLS");
@@ -29,7 +30,7 @@ void Interface::run(){
             hard_coded_word = BoardCaller.SetHardCodedWord();
             do{    
                 std::cout << "\nEscreva <exit> para sair para o menu do jogo!" << std::endl;
-                showWordSecret(hard_coded_word, player_attempts, true);
+                showWordSecret(hard_coded_word, player_attempts, player_attempts_color, true);
                 PrintKeyboard();
                 std::cout << "\nInsira uma palavra: ";
                 std::cin >> args;
@@ -54,13 +55,13 @@ void Interface::run(){
                 }else{
                     player_word = args;//lembrar de rever esta parte
                     player_attempts.emplace_back(player_word);
-                    CheckCaller.TrueCheckerPrint(hard_coded_word,args);//pensar em maneira de dar check entre letras e adicionar um print do estado atual
+                    player_attempts_color = CheckCaller.TrueCheckerPrint(hard_coded_word,args,player_attempts_color);//pensar em maneira de dar check entre letras e adicionar um print do estado atual
                     attempts++;
                 }
             }while (attempts != 6);
             if(args != hard_coded_word){
                 std::cout << "\nPerdeu o jogo!" << std::endl;
-                showWordSecret(hard_coded_word, player_attempts, false);
+                showWordSecret(hard_coded_word, player_attempts, player_attempts_color, false);
             }
         }else if (args == "exit"){
             quit_game = true;
@@ -71,9 +72,10 @@ void Interface::run(){
     std::cout << "Cya!" << std::endl;
 }
 
-void Interface::showWordSecret(std::string word_secret, std::vector<std::string> player_attempts, bool state_game){
+void Interface::showWordSecret(std::string word_secret, std::vector<std::string> player_attempts, std::vector<std::string> player_attempts_color, bool state_game){
     //VARIABLES
     std::cout << "Palavra: ";
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); 
 
     //CODE
     if(state_game){
@@ -86,7 +88,19 @@ void Interface::showWordSecret(std::string word_secret, std::vector<std::string>
 
     for (int i = 0; i < player_attempts.size(); i++){
         putchar('\n');
-        std::cout << player_attempts[i];
+        for (int j = 0; j < player_attempts[i].size(); j++){   
+            if(player_attempts_color[i][j]=='0'){
+                SetConsoleTextAttribute(h, 15);
+                std::cout << player_attempts[i][j];
+            }else if (player_attempts_color[i][j]=='1'){
+                SetConsoleTextAttribute(h, 14);
+                std::cout << player_attempts[i][j];
+            }else if (player_attempts_color[i][j]=='2'){
+                SetConsoleTextAttribute(h, 10);
+                std::cout << player_attempts[i][j];
+            }
+        }
+        SetConsoleTextAttribute(h, 15);
     }
 }
 
