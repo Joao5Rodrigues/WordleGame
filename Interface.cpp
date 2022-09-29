@@ -32,7 +32,7 @@ void Interface::run(){
         player_attempts.clear();
         player_attempts_color.clear();
         attempts = 0;
-        // games_played_percent = games_played/wins;
+        games_played_percent = ((float)wins/(float)games_played)*100;
         std::cout << "\nBem vindo!" << std::endl;
         std::cout << "Jogados: " << games_played << "   Percentagem de jogos ganhos: " << games_played_percent << std::endl;
         std::cout << "Vitoria: " << wins << "   Vitoria em sequencia corrente: " << sequence_wins << "   Melhor sequencia de vitorias: " << best_sequence_wins << std::endl;
