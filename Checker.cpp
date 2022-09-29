@@ -10,7 +10,7 @@ std::vector<std::string> Checker::TrueCheckerPrint(std::string hard_coded_word, 
 
     //CHECKS
     number_check = ReceiveCheck(hard_coded_word,args);//has number code raw
-    DoubleCheck(number_check, args, hard_coded_word);
+    //DoubleCheck(number_check, args, hard_coded_word);
     player_attempts_color.emplace_back(number_check);
     return player_attempts_color;
 }
