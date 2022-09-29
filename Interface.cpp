@@ -15,12 +15,24 @@ void Interface::run(){
     bool quit_game = false;
     std::vector<std::string> player_attempts;
     std::vector<std::string> player_attempts_color;
+    int games_played = 0;
+    int wins = 0;
+    int sequence_wins = 0;
+    int best_sequence_wins = 0;
 
     //CODE
     system("CLS");
     do{
         //Presentation
+        if(sequence_wins > best_sequence_wins){
+            best_sequence_wins = sequence_wins;
+        }
+        player_attempts.clear();
+        player_attempts_color.clear();
+        attempts = 0;
         std::cout << "\nBem vindo!" << std::endl;
+        std::cout << "Jogados: " << games_played << std::endl;
+        std::cout << "Vitoria: " << wins << "   Vitoria em sequencia corrente: " << sequence_wins << "   Melhor sequencia de vitorias: " << best_sequence_wins << std::endl;
         std::cout << "1)Novo jogo - start" << std::endl;
         std::cout << "2)Sair do jogo - exit" << std::endl;
         std::cin >> args;
@@ -28,6 +40,7 @@ void Interface::run(){
         if (args =="start"){
             //Running Code in single Word mode
             hard_coded_word = BoardCaller.SetHardCodedWord();
+            games_played++;
             do{    
                 std::cout << "\nEscreva <exit> para sair para o menu do jogo!" << std::endl;
                 showWordSecret(hard_coded_word, player_attempts, player_attempts_color, true);
@@ -50,6 +63,8 @@ void Interface::run(){
                     SetConsoleTextAttribute(h, 10);
                     std::cout << hard_coded_word << std::endl;
                     SetConsoleTextAttribute(h, 15);
+                    wins++;
+                    sequence_wins++;
                     break;
                     
                 }else{
@@ -62,6 +77,7 @@ void Interface::run(){
             if(args != hard_coded_word){
                 std::cout << "\nPerdeu o jogo!" << std::endl;
                 showWordSecret(hard_coded_word, player_attempts, player_attempts_color, false);
+                sequence_wins = 0;
             }
         }else if (args == "exit"){
             quit_game = true;
