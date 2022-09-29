@@ -12,6 +12,8 @@ private:
 public:
     void run();
     void showWordSecret(std::string word_secret, std::vector<std::string> player_attempts, bool state_game);
+    bool VerifyPlayerWord(std::string word);
+    void PrintKeyboard();
     Interface();
     ~Interface();
 };

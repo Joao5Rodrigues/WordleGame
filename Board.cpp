@@ -18,7 +18,7 @@ std::string Board::SetHardCodedWord(){
     bool create_word = true;
     bool get_word = true;
     do{
-        if(get_word && (random_number <= 0 || random_number >= 1162242)){
+        if(get_word && (random_number <= 0 || random_number >= 5758)){
             random_number = std::rand();
         }else
             get_word = false;
@@ -26,7 +26,7 @@ std::string Board::SetHardCodedWord(){
 
     
     if(!file.is_open())
-        return "teste";
+        return "fails";
     for (int i = 1; i <= random_number; i++){
         std::getline(file,hard_coded_word);
     }
@@ -35,7 +35,5 @@ std::string Board::SetHardCodedWord(){
 }
 
 void Board::PrintBoardInside(std::string hard_coded_word){
-    for (int i = 0; i < hard_coded_word.size(); i++){
-        std::cout << hard_coded_word << std::endl;
-    }
+    std::cout << hard_coded_word << std::endl;
 }
