@@ -1,5 +1,5 @@
 #include "Interface.h"
-#include <stdlib.h>
+#include <windows.h>
 
 Interface::Interface(){}
 
@@ -7,6 +7,7 @@ Interface::~Interface(){}
 
 void Interface::run(){
     //VARIABLES
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); 
     std::string hard_coded_word = "";
     std::string player_word;
     std::string args = "";
@@ -45,8 +46,11 @@ void Interface::run(){
                 }else if(args == hard_coded_word){
                     //ACABAR RESTRIÇÕES E PROGRESSO
                     std::cout << "Ganhou! A palavra era ";
+                    SetConsoleTextAttribute(h, 10);
                     std::cout << hard_coded_word << std::endl;
+                    SetConsoleTextAttribute(h, 15);
                     break;
+                    
                 }else{
                     player_word = args;//lembrar de rever esta parte
                     player_attempts.emplace_back(player_word);

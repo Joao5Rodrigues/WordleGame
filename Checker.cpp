@@ -3,15 +3,15 @@
 Checker::Checker(){}
 Checker::~Checker(){}
 
-std::string Checker::TrueCheckerPrint(std::string hard_coded_word, std::string args){
+std::vector<std::string> Checker::TrueCheckerPrint(std::string hard_coded_word, std::string args){
     //VARIABLES
     std::string number_check = "";//to check if it's right, close or wrong
-    std::string final_result = "";//final result with all verifications
+    // std::string final_result = "";//final result with all verifications
 
     //CHECKS
     number_check = ReceiveCheck(hard_coded_word,args);//has number code raw
     DoubleCheck(number_check, args, hard_coded_word);
-    return "  ";
+    return std;
 }
 
 //FIRST CHECK
